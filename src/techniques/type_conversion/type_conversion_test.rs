@@ -1,6 +1,8 @@
 #[cfg(test)]
 mod test {
-    use crate::techniques::type_conversion::{map_employee_to_people, Employee, People};
+    use crate::techniques::type_conversion::type_conversion::{
+        map_employee_to_people, Employee, People,
+    };
 
     #[test]
     fn test_type_conversion() {
