@@ -1,7 +1,8 @@
+mod algorithms;
+mod concepts;
 mod functional;
 mod patterns;
-mod concepts;
-mod algorithms;
+mod techniques;
 
 fn main() {
     println!("Hello, world!");
