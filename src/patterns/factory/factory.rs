@@ -1,5 +1,5 @@
 pub trait Shape {
-    fn draw(&self);
+    fn draw(&self) -> &str;
 }
 
 pub enum ShapeType {
@@ -10,16 +10,16 @@ pub enum ShapeType {
 pub struct Rectangle {}
 
 impl Shape for Rectangle {
-    fn draw(&self) {
-        println!("draw a rectangle!");
+    fn draw(&self) -> &str {
+        "draw a rectangle!"
     }
 }
 
 pub struct Circle {}
 
 impl Shape for Circle {
-    fn draw(&self) {
-        println!("draw a circle!");
+    fn draw(&self) -> &str {
+        "draw a circle!"
     }
 }
 

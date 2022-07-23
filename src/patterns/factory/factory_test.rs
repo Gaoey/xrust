@@ -5,9 +5,9 @@ mod test {
     #[test]
     fn test_factory() {
         let shape = ShapeFactory::new_shape(&ShapeType::Circle);
-        shape.draw(); // output: draw a circle!
+        assert_eq!(shape.draw(), "draw a circle!");
 
         let shape = ShapeFactory::new_shape(&ShapeType::Rectangle);
-        shape.draw(); // output: draw a rectangle!
+        assert_eq!(shape.draw(), "draw a rectangle!");
     }
 }
