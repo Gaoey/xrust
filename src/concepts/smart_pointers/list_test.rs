@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod list_test {
-    use crate::concepts::xbox::list::List::{Cons, Nil};
+    use crate::concepts::smart_pointers::list::List::{Cons, Nil};
 
     #[test]
     fn test_list() {

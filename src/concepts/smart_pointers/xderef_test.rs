@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod xderef_test {
-    use crate::concepts::xbox::xderef::MyBox;
+    use crate::concepts::smart_pointers::xderef::MyBox;
 
     #[test]
     fn test_pointer() {
