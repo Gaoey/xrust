@@ -1,5 +1,6 @@
 #[cfg(test)]
 mod xderef_test {
+    use crate::concepts::xbox::xderef::MyBox;
 
     #[test]
     fn test_pointer() {
@@ -41,5 +42,17 @@ mod xderef_test {
         The LIFO model of the stack is simpler, at a fundamental level.
         This has two big impacts: runtime efficiency and semantic impact.
         */
+    }
+
+    #[test]
+    fn test_my_box() {
+        /*
+        if MyBox struct doesn't implement 'Deref' it's will shown error
+        "type `MyBox<{integer}>` cannot be dereferences"
+        */
+        let x = 5;
+        let y = MyBox::new(x);
+        assert_eq!(5, x);
+        assert_eq!(5, *y);
     }
 }
