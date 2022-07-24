@@ -1,5 +1,5 @@
 #[cfg(test)]
-mod test {
+mod list_test {
     use crate::concepts::xbox::list::List::{Cons, Nil};
 
     #[test]
