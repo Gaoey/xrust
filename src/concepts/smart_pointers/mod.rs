@@ -1,3 +1,5 @@
+mod interior_mutability_pattern;
+mod interior_mutability_pattern_test;
 mod list;
 mod list_test;
 mod reference_count;

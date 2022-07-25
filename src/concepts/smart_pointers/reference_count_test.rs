@@ -4,7 +4,7 @@ mod reference_count_test {
     use std::rc::Rc;
 
     #[test]
-    fn test_my_box() {
+    fn test_reference_count() {
         let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));
         assert_eq!(Rc::strong_count(&a), 1);
         let _b = Rc::new(Cons(3, Rc::clone(&a)));
