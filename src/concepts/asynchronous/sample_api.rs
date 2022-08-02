@@ -49,7 +49,7 @@ pub async fn get_page_random_failed(i: usize) -> Result<Vec<usize>, Error> {
 
     let is_failed = rng.gen::<bool>();
     if is_failed {
-        return Err(Error::default());
+        return Err(Error::from("get page failed"));
     }
 
     let result = (10 * i..10 * (i + 1)).collect();
