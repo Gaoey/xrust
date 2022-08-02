@@ -1,5 +1,7 @@
+use crate::models::error::Error;
 use lazy_static::lazy_static;
 use rand::distributions::{Distribution, Uniform};
+use rand::Rng;
 use std::time::Duration;
 use tokio::time::{sleep, Instant};
 
@@ -26,4 +28,30 @@ pub async fn get_page(i: usize) -> Vec<usize> {
     );
 
     (10 * i..10 * (i + 1)).collect()
+}
+
+pub async fn get_page_random_failed(i: usize) -> Result<Vec<usize>, Error> {
+    let mut rng = rand::thread_rng();
+    let millis = Uniform::from(0..10).sample(&mut rng);
+    println!(
+        "[{}] # get_page({}) will complete in {} ms",
+        START_TIME.elapsed().as_millis(),
+        i,
+        millis
+    );
+
+    sleep(Duration::from_millis(millis)).await;
+    println!(
+        "[{}] # get_page({}) completed",
+        START_TIME.elapsed().as_millis(),
+        i
+    );
+
+    let is_failed = rng.gen::<bool>();
+    if is_failed {
+        return Err(Error::default());
+    }
+
+    let result = (10 * i..10 * (i + 1)).collect();
+    Ok(result)
 }
