@@ -33,25 +33,30 @@ pub async fn get_page(i: usize) -> Vec<usize> {
 pub async fn get_page_random_failed(i: usize) -> Result<Vec<usize>, Error> {
     let mut rng = rand::thread_rng();
     let millis = Uniform::from(0..10).sample(&mut rng);
-    println!(
-        "[{}] # get_page({}) will complete in {} ms",
-        START_TIME.elapsed().as_millis(),
-        i,
-        millis
-    );
+    // println!(
+    //     "[{}] # get_page({}) will complete in {} ms",
+    //     START_TIME.elapsed().as_millis(),
+    //     i,
+    //     millis
+    // );
 
     sleep(Duration::from_millis(millis)).await;
-    println!(
-        "[{}] # get_page({}) completed",
-        START_TIME.elapsed().as_millis(),
-        i
-    );
-
     let is_failed = rng.gen::<bool>();
     if is_failed {
+        println!(
+            "[{}] # get_page({}) failed",
+            START_TIME.elapsed().as_millis(),
+            i
+        );
         return Err(Error::from("get page failed"));
     }
 
-    let result = (10 * i..10 * (i + 1)).collect();
+    // println!(
+    //     "[{}] # get_page({}) completed",
+    //     START_TIME.elapsed().as_millis(),
+    //     i
+    // );
+
+    let result = vec![i];
     Ok(result)
 }
